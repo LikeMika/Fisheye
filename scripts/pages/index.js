@@ -1,5 +1,5 @@
     async function getPhotographers() {
-        const reponse = await fetch('../Fisheye/data/photographers.json');
+        const reponse = await fetch('/data/photographers.json');
         const data = await reponse.json();
         const photographers = data.photographers;
         console.log(photographers);
@@ -25,4 +25,5 @@
     }
     
     init();
+    
     
