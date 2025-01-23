@@ -1,3 +1,25 @@
+#main .bottom-widget {
+    background-color: #DB8876;
+    position:absolute;
+    bottom: 0;
+    right: 20px;
+    width: 376px;
+    height: 68px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#main .bottom-widget .pricing {
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    
+}
+
 #contact_modal {
     display: none;
 }

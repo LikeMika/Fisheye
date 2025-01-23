@@ -22,9 +22,12 @@ async function getPhotographerById(idPhotographer) {
 async function displayData(photographer) {
     const existingContainer = document.getElementById('photograph-header-container'); // Use the existing container
     const photographerSection = document.querySelector(".photograph-header");
+    const pricingSection = document.querySelector(".bottom-widget");
         const photographerModel = photographerTemplate(photographer);
         const userPageDOM = photographerModel.getUserPageDOM(existingContainer);
+        const userPricingDOM = photographerModel.getUserPricingDOM(pricingSection);
         photographerSection.appendChild(userPageDOM);
+        pricingSection.appendChild(userPricingDOM);
 }
 
 async function init() {

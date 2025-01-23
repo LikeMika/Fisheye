@@ -52,8 +52,13 @@ function photographerTemplate(data) {
         container.appendChild(div);
         container.appendChild(img);
         return container;
-        //return img;
-        //return(div);
     }
-    return { name, id, picture, city, country, tagline, price, getUserCardDOM, getUserPageDOM }
+    function getUserPricingDOM(pricingContainer) {
+        const divPricing = document.createElement('div');
+        divPricing.className = "pricing";
+        divPricing.textContent = price+"€ / jour";
+        pricingContainer.appendChild(divPricing);
+        return pricingContainer;
+    }
+    return { name, id, picture, city, country, tagline, price, getUserCardDOM, getUserPageDOM, getUserPricingDOM }
 }
