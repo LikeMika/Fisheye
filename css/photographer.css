@@ -1,6 +1,6 @@
 #main .bottom-widget {
     background-color: #DB8876;
-    position:absolute;
+    position:fixed;
     bottom: 0;
     right: 20px;
     width: 376px;
@@ -59,6 +59,27 @@
     border-radius: 50%;
     object-fit: cover;
     order: 3;
+}
+
+#photograph-media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    margin: 0 100px;
+}
+#photograph-medi .media-item {
+    display: flex;
+}
+#photograph-media .media-item img {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+}
+#photograph-media .media-item video {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
 }
 .contact_button {
     font-size: 20px;

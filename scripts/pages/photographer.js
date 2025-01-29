@@ -10,10 +10,23 @@ async function getPhotographerById(idPhotographer) {
 
         // Find the photographer with the matching ID
         const photographer = photographers.find(p => p.id === idPhotographer);
-
-        // Log and return the photographer
-        console.log(photographer);
+        
         return photographer;
+    } catch (error) {
+        console.error('Error fetching photographer data:', error);
+    }
+}
+
+async function getPhotographerMediaById(idPhotographer) {
+    try {
+        const response = await fetch('/data/photographers.json');
+        const data = await response.json();
+        const pictures = data.media;
+        const picturesPhotographer = pictures.filter(d => d.photographerId === idPhotographer);
+        // Log and return the photographer
+        //console.log(photographer);
+        console.log(picturesPhotographer);
+        return picturesPhotographer;
     } catch (error) {
         console.error('Error fetching photographer data:', error);
     }
@@ -28,12 +41,25 @@ async function displayData(photographer) {
         const userPricingDOM = photographerModel.getUserPricingDOM(pricingSection);
         photographerSection.appendChild(userPageDOM);
         pricingSection.appendChild(userPricingDOM);
+        //console.log(photographerModel);
+}
+
+async function displayMedia(picturesPhotographer) {
+    const photographer  = await getPhotographerById(idPhotographer);
+    const existingMediaContainer = document.getElementById('photograph-media');
+    const mediaModel = MediaTemplate(picturesPhotographer, photographer.name);
+    const mediaPageDOM = mediaModel.getUserMediaDOM(existingMediaContainer);
+    existingMediaContainer.appendChild(mediaPageDOM);
+    
 }
 
 async function init() {
     // Récupère les datas des photographes
     const photographer  = await getPhotographerById(idPhotographer);
+    const picturesPhotographer = await getPhotographerMediaById(idPhotographer);
+    displayMedia(picturesPhotographer);
     displayData(photographer);
+    //displayMedia(picturesPhotographer);
 }
 
 init();

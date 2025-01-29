@@ -1,4 +1,4 @@
-function photographerTemplate(data) {
+function photographerTemplate(data, media) {
     const { name, id, portrait, city, country, tagline, price } = data;
     console.log(data);
     const picture = `assets/photographers/${portrait}`;
