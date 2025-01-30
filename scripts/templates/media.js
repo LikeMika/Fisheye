@@ -18,19 +18,18 @@ function MediaTemplate(media, name) {
                 video.controls = true;
                 mediaElement.appendChild(video);
             }
-    
+            const mediaContentElement = document.createElement('div');
+            mediaContentElement.classList.add('media-content');
             const title = document.createElement('h3');
             title.textContent = item.title;
-            mediaElement.appendChild(title);
+            mediaContentElement.appendChild(title);
     
             const likes = document.createElement('p');
-            likes.textContent = `${item.likes} likes`;
-            mediaElement.appendChild(likes);
-    
-            const price = document.createElement('p');
-            price.textContent = `Price: $${item.price}`;
-            mediaElement.appendChild(price);
-    
+            //likes.textContent = `${item.likes}`;
+            likes.innerHTML = `${item.likes} <i class="fa-regular fa-heart"></i>`;
+            mediaContentElement.appendChild(likes);
+
+            mediaElement.appendChild(mediaContentElement);
             mediaContainer.appendChild(mediaElement);
         });
         }
