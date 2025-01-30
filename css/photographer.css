@@ -61,15 +61,18 @@
     order: 3;
 }
 
+.filter {
+    margin: 20px 100px;
+}
+.filter label {
+    font-weight: bold;
+}
 #photograph-media {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: space-between;
     margin: 0 100px;
-}
-#photograph-medi .media-item {
-    display: flex;
 }
 #photograph-media .media-item img {
     width: 350px;
