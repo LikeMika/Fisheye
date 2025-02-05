@@ -1,5 +1,5 @@
 function MediaTemplate(media, name) {
-    const { title, image, likes, date, priceMedia } = media;
+    const { id, photographerId, title, image, likes, date, priceMedia } = media;
     const firstname = name.split(' ')[0];
     
         function getUserMediaDOM(mediaContainer) {
@@ -11,6 +11,8 @@ function MediaTemplate(media, name) {
                 const img = document.createElement('img');
                 img.src = `/assets/photograph/${firstname}/${item.image}`;
                 img.alt = item.title;
+                //img.classList = "image";
+                img.setAttribute("onclick", `showMedia('${img.src}')`);
                 mediaElement.appendChild(img);
             } else if (item.video) {
                 const video = document.createElement('video');
@@ -33,7 +35,7 @@ function MediaTemplate(media, name) {
             mediaContainer.appendChild(mediaElement);
         });
         }
-        return { title, image, likes, date, priceMedia, getUserMediaDOM }
+        return { id, photographerId, title, image, likes, date, priceMedia, getUserMediaDOM }
     
     
 }

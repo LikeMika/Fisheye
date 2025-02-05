@@ -78,11 +78,13 @@
     width: 350px;
     height: 300px;
     object-fit: cover;
+    cursor: pointer;
 }
 #photograph-media .media-item video {
     width: 350px;
     height: 300px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 #photograph-media .media-item .media-content {
@@ -196,4 +198,60 @@ form textarea {
 
 .formData[data-error-visible="true"] {
     border: 1px red;
+}
+
+#lightbox {
+    position:fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: white;
+}
+.modal_lightbox {
+    border-radius: 5px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+    position:absolute;
+    top: 40px;
+    left: 25%;
+    /*overflow-y: scroll;*/
+}
+.modal_lightbox button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 60px;
+    color: #901C1C;
+    font-weight: bold;
+}
+
+.modal_lightbox .btn-nav-left {
+    position: absolute;
+    left: -100px;
+    top: 300px;
+}
+.modal_lightbox .btn-nav-right {
+    position: absolute;
+    right: -100px;
+    top: 300px;
+}
+
+.modal_lightbox .close-media {
+    filter: invert(14%) sepia(40%) saturate(5294%) hue-rotate(346deg) brightness(99%) contrast(95%);
+    position: absolute;
+    right: -100px;
+    top: 40px;
+}
+
+#live_media img {
+    width: 800px;
+   
 }
