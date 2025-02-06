@@ -61,14 +61,13 @@
 			</div>
 		</div>
     <div id="lightbox">
-      <div class="modal_lightbox" aria-hidden="true" role="dialog">
-       <button class="btn-nav-left"><</button>
-       <button class="btn-nav-right">></button>
-        <img src="assets/icons/close.svg" class="close-media" onclick="closeMedia()" />
+      <div id="modal-lightbox" class="modal_lightbox" aria-hidden="true" role="dialog">
+       <button id="btn-nav-left"><</button>
+       <button id="btn-nav-right">></button>
+        <img src="assets/icons/close.svg" id="close-media" onclick="closeMedia()" />
       
-       <div id="live_media">
-
-       </div>
+       <div id="lightbox-media"></div>
+       <p id="lightbox-title">
       </div>
     </div>
     <script src="scripts/templates/media.js"></script>
