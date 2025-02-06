@@ -75,7 +75,7 @@ lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) closeLightbox();
 });
 
-// Close on ESC key
+// Gestion du clavier
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeLightbox();
     if (event.key === "ArrowLeft") navigateLightbox(-1);

@@ -1,7 +1,7 @@
 function MediaTemplate(media, name) {
     const { id, photographerId, title, image, likes, date, priceMedia } = media;
     const firstname = name.split(' ')[0];
-    
+    let totalLikes = 0;
         function getUserMediaDOM(mediaContainer) {
             media.forEach((item, index) => {
             const mediaElement = document.createElement('div');
@@ -31,14 +31,19 @@ function MediaTemplate(media, name) {
     
             const likes = document.createElement('p');
             //likes.textContent = `${item.likes}`;
-            likes.innerHTML = `${item.likes} <i class="fa-regular fa-heart"></i>`;
+            const mediaLikes = item.likes;
+            likes.innerHTML = `${mediaLikes} <i class="fa-regular fa-heart"></i>`;
             mediaContentElement.appendChild(likes);
+            totalLikes = totalLikes + mediaLikes;
 
             mediaElement.appendChild(mediaContentElement);
             mediaContainer.appendChild(mediaElement);
-            mediaElement.addEventListener("click", () => openLightbox(index, media, firstname)); // ajouter media
+            preview.addEventListener("click", () => openLightbox(index, media, firstname));
+            
         });
+
         }
+
         return { id, photographerId, title, image, likes, date, priceMedia, getUserMediaDOM }
     
     

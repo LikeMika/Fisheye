@@ -53,6 +53,7 @@ function photographerTemplate(data, media) {
         container.appendChild(img);
         return container;
     }
+    
     function getUserPricingDOM(pricingContainer) {
         const divPricing = document.createElement('div');
         divPricing.className = "pricing";
@@ -60,5 +61,15 @@ function photographerTemplate(data, media) {
         pricingContainer.appendChild(divPricing);
         return pricingContainer;
     }
-    return { name, id, picture, city, country, tagline, price, getUserCardDOM, getUserPageDOM, getUserPricingDOM }
+
+    function showTotalLikes(likesContainer, total)
+    {
+        const pLikes = document.createElement('p');
+        pLikes.className = "likes";
+        pLikes.textContent = total;
+        likesContainer.appendChild(pLikes);
+        section.appendChild(likesContainer);
+    }
+
+    return { name, id, picture, city, country, tagline, price, getUserCardDOM, getUserPageDOM, getUserPricingDOM, showTotalLikes }
 }

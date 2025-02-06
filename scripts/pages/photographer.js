@@ -32,6 +32,25 @@ async function getPhotographerMediaById(idPhotographer) {
     }
 }
 
+async function getTotalLikes(media, photographer) {
+    const likeSection = document.querySelector(".bottom-widget");
+    let totalLikes = 0;
+    const { id, likes} = media;
+    media.forEach((item) => {
+        mediaLikes = item.likes;
+        totalLikes = totalLikes + mediaLikes;
+    });
+    console.log("Total Likes is: "+totalLikes);
+    const likesSection = document.querySelector(".bottom-widget");
+    const likesDOM = photographerTemplate(photographer);
+    const getLikes = likesDOM.showTotalLikes(likesSection, totalLikes);
+    likeSection.appendChild(getLikes);
+    
+
+    //return { id, likes, totalLikes }
+}
+
+
 async function displayData(photographer) {
     const existingContainer = document.getElementById('photograph-header-container'); // Use the existing container
     const photographerSection = document.querySelector(".photograph-header");
@@ -59,6 +78,7 @@ async function init() {
     const picturesPhotographer = await getPhotographerMediaById(idPhotographer);
     displayMedia(picturesPhotographer);
     displayData(photographer);
+    getTotalLikes(picturesPhotographer, photographer);
     //displayMedia(picturesPhotographer);
 }
 
