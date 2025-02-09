@@ -29,7 +29,7 @@ async function getPhotographerMediaById(idPhotographer) {
         console.error('Error fetching photographer data:', error);
     }
 }
-
+/*
 async function getTotalLikes(media, photographer) {
     const likeSection = document.querySelector(".bottom-widget");
     let totalLikes = 0;
@@ -44,7 +44,7 @@ async function getTotalLikes(media, photographer) {
     const getLikes = likesDOM.showTotalLikes(likesSection, totalLikes);
     likeSection.appendChild(getLikes);
 }
-
+*/
 
 async function displayData(photographer) {
     const existingContainer = document.getElementById('photograph-header-container'); // Use the existing container
