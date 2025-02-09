@@ -1,3 +1,5 @@
+let totalLikes = 0;
+
 function MediaTemplate(media, name) {
     const { id, photographerId, title, image, likes, date, priceMedia } = media;
     const firstname = name.split(' ')[0];
@@ -29,15 +31,29 @@ function MediaTemplate(media, name) {
             title.textContent = item.title;
             mediaContentElement.appendChild(title);
     
-            const likes = document.createElement('p');
+            const likeContainer = document.createElement('div');
+            likeContainer.classList.add('like-container');
             //likes.textContent = `${item.likes}`;
-            const mediaLikes = item.likes;
-            likes.innerHTML = `${mediaLikes} <i class="fa-regular fa-heart"></i>`;
-            mediaContentElement.appendChild(likes);
-            totalLikes = totalLikes + mediaLikes;
+            //const mediaLikes = item.likes;
+
+            const likeCount = document.createElement('span');
+            likeCount.textContent = item.likes;
+            likeCount.classList.add('like-count');
+
+            const likeIcon = document.createElement('i');
+            likeIcon.classList.add('fa-regular', 'fa-heart');
+            likeIcon.style.cursor = 'pointer';
+
+            mediaContentElement.appendChild(likeContainer);
+            likeContainer.appendChild(likeCount);
+            likeContainer.appendChild(likeIcon);
+            totalLikes += item.likes;
 
             mediaElement.appendChild(mediaContentElement);
             mediaContainer.appendChild(mediaElement);
+
+            likeIcon.addEventListener("click", () => addLike(item, likeCount, likeIcon));
+
             preview.addEventListener("click", () => openLightbox(index, media, firstname));
             
         });
@@ -46,5 +62,24 @@ function MediaTemplate(media, name) {
 
         return { id, photographerId, title, image, likes, date, priceMedia, getUserMediaDOM }
     
-    
+}
+
+function addLike(item, likeCountElement, likeIcon) {
+    const isLiked = likeIcon.classList.contains('fa-solid');
+
+    if (isLiked) {
+        item.likes--;
+        totalLikes--;
+        likeIcon.classList.remove('fa-solid');
+        likeIcon.classList.add('fa-regular');
+    } else {
+        item.likes++;
+        totalLikes++;
+        likeIcon.classList.remove('fa-regular');
+        likeIcon.classList.add('fa-solid');
+    }
+
+        likeCountElement.textContent = item.likes;
+        likeCountElement.classList.toggle('liked');
+
 }

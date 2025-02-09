@@ -13,21 +13,6 @@ let firstname = "";
 //const mediaSelected = document.querySelector(".image");
 //mediaSelected.addEventListener("click", showMedia);
 
-function showMedia(source) {
-    console.log("la source est: "+source);
-
-    const modal = document.getElementById("lightbox");
-	modal.style.display = "block";
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
-    const selectedMediaContainer = document.getElementById('live_media');
-    //selectedMediaContainer.innerHTML = "";
-    const imageSelected = document.createElement('img');
-    imageSelected.setAttribute("src", source);
-    imageSelected.setAttribute("alt", "test");
-    selectedMediaContainer.appendChild(imageSelected);
-}
-
 function openLightbox(index, mediaAll, photographerName) {
     firstname = photographerName;
     mediaList = mediaAll;

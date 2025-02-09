@@ -23,8 +23,6 @@ async function getPhotographerMediaById(idPhotographer) {
         const data = await response.json();
         const pictures = data.media;
         const picturesPhotographer = pictures.filter(d => d.photographerId === idPhotographer);
-        // Log and return the photographer
-        //console.log(photographer);
         console.log(picturesPhotographer);
         return picturesPhotographer;
     } catch (error) {
@@ -41,13 +39,10 @@ async function getTotalLikes(media, photographer) {
         totalLikes = totalLikes + mediaLikes;
     });
     console.log("Total Likes is: "+totalLikes);
-    const likesSection = document.querySelector(".bottom-widget");
+    const likesSection = document.querySelector(".heart");
     const likesDOM = photographerTemplate(photographer);
     const getLikes = likesDOM.showTotalLikes(likesSection, totalLikes);
     likeSection.appendChild(getLikes);
-    
-
-    //return { id, likes, totalLikes }
 }
 
 
