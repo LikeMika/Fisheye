@@ -4,7 +4,8 @@ const lightboxMedia = document.getElementById("lightbox-media");
 const lightboxTitle = document.getElementById("lightbox-title");
 const prevButton = document.getElementById("btn-nav-left");
 const nextButton = document.getElementById("btn-nav-right");
-const closeButton = document.getElementById("close");
+const closeButton = document.getElementById("close-modal");
+
 
 let mediaList = [];
 let currentIndex = 0;
@@ -56,20 +57,17 @@ nextButton.addEventListener("click", () => navigateLightbox(1));
 closeButton.addEventListener("click", closeLightbox);
 
 // Close when clicking outside of media
-lightbox.addEventListener("click", (event) => {
+lightboxContainer.addEventListener("click", (event) => {
     if (event.target === lightbox) closeLightbox();
 });
 
+function closeLightbox() {
+    lightboxContainer.classList.remove("visible");
+}
 // Gestion du clavier
-document.addEventListener("keydown", (event) => {
+window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeLightbox();
     if (event.key === "ArrowLeft") navigateLightbox(-1);
     if (event.key === "ArrowRight") navigateLightbox(1);
 });
 
-function closeMedia() {
-    //const modal = document.getElementById("lightbox");
-    lightboxContainer.classList.remove("visible");
-    document.body.style.position = 'relative';
-    document.body.style.top = `${window.scrollY}px`;
-}

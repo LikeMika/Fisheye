@@ -70,9 +70,52 @@
 
 .filter {
     margin: 20px 100px;
+    position: relative;
 }
 .filter label {
     font-weight: bold;
+}
+
+#sort-options {
+    width: 170px;
+    height: 70px;
+    font-size: 18px;
+    background-color: #901C1C;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    padding-left: 15px;
+
+}
+#sort-options>option:hover {
+    width: 170px;
+    height: 70px;
+    font-size: 18px;
+    background-color: #901C1C;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    padding-left: 15px;
+
+}
+.separator {
+    color: white;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #fff;
+    margin: 1em 0;
+    padding: 0;
+    background-color: white;
+}
+#sort-options>option {
+    width: 170px;
+    height: 70px;
+    font-size: 18px;
+    background-color: #901C1C;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    padding-left: 15px;
 }
 #photograph-media {
     display: flex;
@@ -168,7 +211,7 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 40px;
     font-weight: normal;
     text-align: center;
 }
@@ -182,7 +225,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 20px;
 }
 
 form div {
@@ -195,7 +238,7 @@ form div {
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 40px;
     border: none;
     border-radius: 5px;
 }
@@ -263,8 +306,7 @@ form textarea {
     top: 300px;
 }
 
-#close-media {
-    filter: invert(14%) sepia(40%) saturate(5294%) hue-rotate(346deg) brightness(99%) contrast(95%);
+#close-modal {
     position: absolute;
     right: -100px;
     top: 40px;

@@ -9,7 +9,6 @@ const mediaContainer = document.getElementById('photograph-media');
 // Variable pour suivre l'ordre du tri (ascendant ou descendant)
 let sortOrder = {
     popularity: true, // true = croissant, false = décroissant
-    date: true,
     title: true
 };
 
@@ -104,14 +103,14 @@ function addLike(item, likeCountElement, likeIcon) {
 }
 
 function sortMedia(criteria) {
-    console.log("Picture photographer from sort: "+mediaArray);
+    //console.log("Picture photographer from sort: "+mediaArray);
     mediaArray.sort((a, b) => {
         if (criteria === 'popularity') {
             return sortOrder.popularity ? a.likes - b.likes : b.likes - a.likes;
         }
-        if (criteria === 'date') {
+        /*if (criteria === 'date') {
             return sortOrder.date ? new Date(a.date) - new Date(b.date) : new Date(b.date) - new Date(a.date);
-        }
+        }*/
         if (criteria === 'title') {
             return sortOrder.title ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
         }
