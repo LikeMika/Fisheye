@@ -12,6 +12,9 @@ let sortOrder = {
     title: true
 };
 
+//on stock dans un objet le status de l'icon heart
+let likedMedia = {};
+
 function MediaTemplate(media, name) {
     mediaArray = media;
     photographerName = name;
@@ -62,8 +65,15 @@ function getUserMediaDOM() {
         likeCount.classList.add("like-count");
 
         const likeIcon = document.createElement("i");
-        likeIcon.classList.add("fa-regular", "fa-heart");
+        likeIcon.classList.add("fa-heart");
         likeIcon.style.cursor = "pointer";
+
+        // On définit la classe de l'icon en fonction de l'objet likeMedia
+        if (likedMedia[item.title]) {
+            likeIcon.classList.add("fa-solid");
+        } else {
+            likeIcon.classList.add("fa-regular");
+        }
 
         likeContainer.appendChild(likeCount);
         likeContainer.appendChild(likeIcon);
@@ -87,12 +97,14 @@ function addLike(item, likeCountElement, likeIcon) {
         if (item.likes > item.initialLikes) {
             item.likes--;
             totalLikes--;
+            likedMedia[item.title] = false;
             likeIcon.classList.remove('fa-solid');
             likeIcon.classList.add('fa-regular');
         }
     } else {
         item.likes++;
         totalLikes++;
+        likedMedia[item.title] = true;
         likeIcon.classList.remove('fa-regular');
         likeIcon.classList.add('fa-solid');
     }
@@ -108,9 +120,9 @@ function sortMedia(criteria) {
         if (criteria === 'popularity') {
             return sortOrder.popularity ? a.likes - b.likes : b.likes - a.likes;
         }
-        /*if (criteria === 'date') {
+        if (criteria === 'date') {
             return sortOrder.date ? new Date(a.date) - new Date(b.date) : new Date(b.date) - new Date(a.date);
-        }*/
+        }
         if (criteria === 'title') {
             return sortOrder.title ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
         }
@@ -121,7 +133,7 @@ function sortMedia(criteria) {
     getUserMediaDOM();
 }
 
-// Écouteur d'événement sur le menu déroulant pour trier les médias
+// Trier par
 sortSelect.addEventListener('change', function() {
     const selectedOption = this.value;
     sortMedia(selectedOption);
