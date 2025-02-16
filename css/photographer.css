@@ -71,52 +71,77 @@
 .filter {
     margin: 20px 100px;
     position: relative;
+    display: flex;
+    align-items: center;
 }
-.filter label {
+.filter span {
     font-weight: bold;
+    margin-right: 10px;
 }
 
-#sort-options {
+.custom-select {
+    position: relative;
+    font-family: Arial, sans-serif;
     width: 170px;
-    height: 70px;
-    font-size: 18px;
+  }
+  
+  .select-selected {
     background-color: #901C1C;
-    color: white;
-    font-family: inherit;
     font-weight: bold;
-    padding-left: 15px;
-
-}
-#sort-options>option:hover {
-    width: 170px;
-    height: 70px;
-    font-size: 18px;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    height: 49px;
+    margin: auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+.clicked {
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+  
+  .select-items {
+    position: absolute;
     background-color: #901C1C;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    z-index: 99;
+    width: 100%;
+  }
+  
+  .select-items div {
     color: white;
-    font-family: inherit;
     font-weight: bold;
-    padding-left: 15px;
-
-}
-.separator {
-    color: white;
-    display: block;
+    padding: 10px;
+    height: 49px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .select-items .separator {
     height: 1px;
-    border-top: 1px solid #fff;
-    margin: 1em 0;
-    padding: 0;
     background-color: white;
-}
-#sort-options>option {
-    width: 170px;
-    height: 70px;
-    font-size: 18px;
-    background-color: #901C1C;
-    color: white;
-    font-family: inherit;
-    font-weight: bold;
-    padding-left: 15px;
-}
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0;
+  }
+  
+  .select-items div:hover {
+    background-color: #923131;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .select-hide {
+    display: none;
+  }
+
 #photograph-media {
     display: flex;
     flex-wrap: wrap;

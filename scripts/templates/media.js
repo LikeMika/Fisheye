@@ -2,8 +2,9 @@ let totalLikes = 0;
 let mediaArray = [];
 let photographerName = '';
 const totalLikesContainer = document.getElementById('total-likes');
+const selectClassHandle = document.getElementById('select-origin');
 
-const sortSelect = document.getElementById('sort-options');
+//const sortSelect = document.getElementById('sort-options');
 const mediaContainer = document.getElementById('photograph-media');
 
 // Variable pour suivre l'ordre du tri (ascendant ou descendant)
@@ -28,6 +29,7 @@ function getUserMediaDOM() {
     mediaArray.forEach((item, index) => {
         const mediaElement = document.createElement("div");
         mediaElement.classList.add("media-item");
+        mediaElement.setAttribute('aria-label', 'Photo de '+photographerName+' portant le nom de '+item.title+' avec un total de '+newTotalLikes+ 'likes')
 
         if (!item.initialLikes) {
             item.initialLikes = item.likes;
@@ -129,12 +131,45 @@ function sortMedia(criteria) {
     });
 
     sortOrder[criteria] = !sortOrder[criteria];
-
+    selectClassHandle.classList.remove('clicked');
     getUserMediaDOM();
 }
 
-// Trier par
-sortSelect.addEventListener('change', function() {
-    const selectedOption = this.value;
-    sortMedia(selectedOption);
-});
+// Toggle dropdown visibility
+document.querySelector('.select-selected').addEventListener('click', function() {
+    this.nextElementSibling.classList.toggle('select-hide');
+    if (selectClassHandle.classList.contains('clicked'))
+    {
+        this.classList.remove('clicked');
+    }
+    else {
+        this.classList.add('clicked');
+    }
+    
+  });
+  
+  // Handle option selection
+  document.querySelectorAll('.select-items div').forEach(function(item) {
+    item.addEventListener('click', function() {
+      if (!this.classList.contains('separator')) {
+        document.querySelector('.select-selected').innerText = this.innerText;
+        this.parentNode.classList.add('select-hide');
+        const selectedOption = this.getAttribute('data-value');
+        sortMedia(selectedOption); // Ensure sortMedia function is defined
+      }
+    });
+  });
+  
+  // Close the dropdown if the user clicks outside of it
+  window.addEventListener('click', function(event) {
+    if (!event.target.matches('.select-selected')) {
+      const dropdowns = document.querySelectorAll('.select-items');
+      selectClassHandle.classList.remove('clicked');
+      dropdowns.forEach(function(dropdown) {
+        if (!dropdown.classList.contains('select-hide')) {
+          dropdown.classList.add('select-hide');
+        }
+      });
+    }
+  });
+  

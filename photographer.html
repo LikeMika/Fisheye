@@ -17,12 +17,18 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="filter">
-        <label for="sort-options">Trier par :</label>
-        <select id="sort-options">
-              <option value="popularity">Popularité</option>
-              <option value="date">Date</option>          
-              <option value="title">Titre</option>
-        </select>
+        <span>Trier par</span>
+        <div class="custom-select">
+          <div id="select-origin" class="select-selected">Populaire</div>
+          <div class="select-items select-hide">
+            <div data-value="popularity">Populaire</div>
+            <div class="separator"></div>
+            <div data-value="date">Date</div>
+            <div class="separator"></div>
+            <div data-value="title">Titre</div>
+          </div>
+        </div>
+        
       </div>
       <div id="photograph-media">
 

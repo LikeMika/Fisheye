@@ -5,14 +5,12 @@ const lightboxTitle = document.getElementById("lightbox-title");
 const prevButton = document.getElementById("btn-nav-left");
 const nextButton = document.getElementById("btn-nav-right");
 const closeButton = document.getElementById("close-modal");
+const mainContainer = document.getElementById("main");
 
 
 let mediaList = [];
 let currentIndex = 0;
 let firstname = "";
-
-//const mediaSelected = document.querySelector(".image");
-//mediaSelected.addEventListener("click", showMedia);
 
 function openLightbox(index, mediaAll, photographerName) {
     firstname = photographerName;
@@ -21,7 +19,8 @@ function openLightbox(index, mediaAll, photographerName) {
     console.log("index is: "+index);
     updateLightbox();
     lightboxContainer.classList.add("visible");
-    //lightboxContainer.style.display = "block";
+    lightbox.setAttribute('aria-hidden', 'false');
+    mainContainer.setAttribute('aria-hidden', 'true');
 }
 
 function updateLightbox() {
@@ -63,6 +62,7 @@ lightboxContainer.addEventListener("click", (event) => {
 
 function closeLightbox() {
     lightboxContainer.classList.remove("visible");
+    mainContainer.setAttribute('aria-hidden', 'false');
 }
 // Gestion du clavier
 window.addEventListener("keydown", (event) => {
