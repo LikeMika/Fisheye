@@ -6,7 +6,7 @@ function photographerTemplate(data, media) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const urlPhotographer = document.createElement('a');
-        urlPhotographer.setAttribute("href","./photographer.html?id="+id);
+        urlPhotographer.setAttribute("href","photographer.html?id="+id);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         img.setAttribute("alt", "Portrait de "+name);
