@@ -35,9 +35,9 @@ function updateLightbox() {
         lightboxMedia.appendChild(img);
     } else if (media.video) {
         const video = document.createElement("video");
-        video.src = media.video;
+        video.src = `/assets/photograph/${firstname}/${media.video}`;
         video.controls = true;
-        video.autoplay = true;
+        video.autoplay = false;
         lightboxMedia.appendChild(video);
     }
 

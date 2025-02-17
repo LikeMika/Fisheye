@@ -4,6 +4,11 @@ const email = document.getElementById("email");
 const message = document.getElementById("message");
 const form = document.getElementById("form");
 const error = document.querySelector(".formData");
+const modal = document.getElementById("contact_modal");
+const modalBlock = document.querySelector(".modal");
+
+//const mainContainer = document.getElementById("main");
+
 let verifChamp = false;
 
 function verifierChamp(champ) {
@@ -31,14 +36,16 @@ function verifierChamp(champ) {
   }
 
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+    modalBlock.setAttribute('aria-hidden', 'false');
+    mainContainer.setAttribute('aria-hidden', 'true');
+	  modal.style.display = "block";
     document.body.style.position = 'fixed';
     document.body.style.top = `-${window.scrollY}px`;
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
+    modalBlock.setAttribute('aria-hidden', 'true');
+    mainContainer.setAttribute('aria-hidden', 'false');
     modal.style.display = "none";
     document.body.style.position = 'relative';
     document.body.style.top = `${window.scrollY}px`;

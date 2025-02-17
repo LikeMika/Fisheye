@@ -3,6 +3,7 @@ let mediaArray = [];
 let photographerName = '';
 const totalLikesContainer = document.getElementById('total-likes');
 const selectClassHandle = document.getElementById('select-origin');
+const upDown = document.getElementById('updown');
 
 //const sortSelect = document.getElementById('sort-options');
 const mediaContainer = document.getElementById('photograph-media');
@@ -46,7 +47,7 @@ function getUserMediaDOM() {
         } else if (item.video) {
             const video = document.createElement("video");
             video.src = `/assets/photograph/${photographerName.split(' ')[0]}/${item.video}`;
-            video.controls = true;
+            video.controls = false;
             preview = video;
             mediaElement.appendChild(video);
         }
@@ -117,7 +118,6 @@ function addLike(item, likeCountElement, likeIcon) {
 }
 
 function sortMedia(criteria) {
-    //console.log("Picture photographer from sort: "+mediaArray);
     mediaArray.sort((a, b) => {
         if (criteria === 'popularity') {
             return sortOrder.popularity ? a.likes - b.likes : b.likes - a.likes;
@@ -137,13 +137,15 @@ function sortMedia(criteria) {
 
 // Toggle dropdown visibility
 document.querySelector('.select-selected').addEventListener('click', function() {
-    this.nextElementSibling.classList.toggle('select-hide');
+    upDown.nextElementSibling.classList.toggle('select-hide');
     if (selectClassHandle.classList.contains('clicked'))
     {
         this.classList.remove('clicked');
+        upDown.src = 'assets/images/down.png';
     }
     else {
         this.classList.add('clicked');
+        upDown.src = 'assets/images/up.png';
     }
     
   });
@@ -155,7 +157,7 @@ document.querySelector('.select-selected').addEventListener('click', function() 
         document.querySelector('.select-selected').innerText = this.innerText;
         this.parentNode.classList.add('select-hide');
         const selectedOption = this.getAttribute('data-value');
-        sortMedia(selectedOption); // Ensure sortMedia function is defined
+        sortMedia(selectedOption);
       }
     });
   });
@@ -165,6 +167,7 @@ document.querySelector('.select-selected').addEventListener('click', function() 
     if (!event.target.matches('.select-selected')) {
       const dropdowns = document.querySelectorAll('.select-items');
       selectClassHandle.classList.remove('clicked');
+      upDown.src = 'assets/images/down.png';
       dropdowns.forEach(function(dropdown) {
         if (!dropdown.classList.contains('select-hide')) {
           dropdown.classList.add('select-hide');
