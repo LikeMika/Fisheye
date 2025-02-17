@@ -40,13 +40,13 @@ function getUserMediaDOM() {
         let preview;
         if (item.image) {
             const img = document.createElement("img");
-            img.src = `/assets/photograph/${photographerName.split(' ')[0]}/${item.image}`;
+            img.src = `./assets/photograph/${photographerName.split(' ')[0]}/${item.image}`;
             img.alt = item.title;
             preview = img;
             mediaElement.appendChild(img);
         } else if (item.video) {
             const video = document.createElement("video");
-            video.src = `/assets/photograph/${photographerName.split(' ')[0]}/${item.video}`;
+            video.src = `./assets/photograph/${photographerName.split(' ')[0]}/${item.video}`;
             video.controls = false;
             preview = video;
             mediaElement.appendChild(video);
