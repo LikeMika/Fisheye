@@ -5,7 +5,7 @@ let idPhotographer = parseInt(params.get("id"));
 
 async function getPhotographerById(idPhotographer) {
     try {
-        const response = await fetch('/data/photographers.json');
+        const response = await fetch('data/photographers.json');
         const data = await response.json();
         const photographers = data.photographers;
 
@@ -19,7 +19,7 @@ async function getPhotographerById(idPhotographer) {
 
 async function getPhotographerMediaById(idPhotographer) {
     try {
-        const response = await fetch('/data/photographers.json');
+        const response = await fetch('data/photographers.json');
         const data = await response.json();
         const pictures = data.media;
         const picturesPhotographer = pictures.filter(d => d.photographerId === idPhotographer);
