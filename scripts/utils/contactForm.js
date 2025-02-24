@@ -7,8 +7,6 @@ const error = document.querySelector(".formData");
 const modal = document.getElementById("contact_modal");
 const modalBlock = document.querySelector(".modal");
 
-//const mainContainer = document.getElementById("main");
-
 let verifChamp = false;
 
 function verifierChamp(champ) {

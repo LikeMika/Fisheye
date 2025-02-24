@@ -1,4 +1,3 @@
-//Mettre le code JavaScript lié à la page photographer.html
 let params = new URL(document.location).searchParams;
 let idPhotographer = parseInt(params.get("id"));
 
@@ -32,7 +31,7 @@ async function getPhotographerMediaById(idPhotographer) {
 
 
 async function displayData(photographer) {
-    const existingContainer = document.getElementById('photograph-header-container'); // Use the existing container
+    const existingContainer = document.getElementById('photograph-header-container');
     const photographerSection = document.querySelector(".photograph-header");
     const pricingSection = document.querySelector(".bottom-widget");
         const photographerModel = photographerTemplate(photographer);

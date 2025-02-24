@@ -25,8 +25,6 @@ function openLightbox(index, mediaAll, photographerName) {
 
 function updateLightbox() {
     const media = mediaList[currentIndex];
-
-    // Clear previous content
     lightboxMedia.innerHTML = "";
 
     if (media.image) {
@@ -57,7 +55,7 @@ prevButton.addEventListener("click", () => navigateLightbox(-1));
 nextButton.addEventListener("click", () => navigateLightbox(1));
 closeButton.addEventListener("click", closeLightbox);
 
-// Close when clicking outside of media
+// Fermeture quand clic en dehors de la zone
 lightboxContainer.addEventListener("click", (event) => {
     if (event.target === lightbox) closeLightbox();
 });

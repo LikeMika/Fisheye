@@ -5,7 +5,6 @@ const totalLikesContainer = document.getElementById('total-likes');
 const selectClassHandle = document.getElementById('select-origin');
 const upDown = document.getElementById('updown');
 
-//const sortSelect = document.getElementById('sort-options');
 const mediaContainer = document.getElementById('photograph-media');
 
 // Variable pour suivre l'ordre du tri (ascendant ou descendant)
@@ -137,7 +136,6 @@ function sortMedia(criteria) {
     getUserMediaDOM();
 }
 
-// Toggle dropdown visibility
 document.querySelector('.select-selected').addEventListener('click', function() {
     upDown.nextElementSibling.classList.toggle('select-hide');
     if (selectClassHandle.classList.contains('clicked'))
@@ -152,7 +150,6 @@ document.querySelector('.select-selected').addEventListener('click', function() 
     
   });
   
-  // Handle option selection
   document.querySelectorAll('.select-items div').forEach(function(item) {
     item.addEventListener('click', function() {
       if (!this.classList.contains('separator')) {
@@ -164,7 +161,6 @@ document.querySelector('.select-selected').addEventListener('click', function() 
     });
   });
   
-  // Close the dropdown if the user clicks outside of it
   window.addEventListener('click', function(event) {
     if (!event.target.matches('.select-selected')) {
       const dropdowns = document.querySelectorAll('.select-items');
