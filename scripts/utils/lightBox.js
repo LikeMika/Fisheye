@@ -32,10 +32,12 @@ function updateLightbox() {
     if (media.image) {
         const img = document.createElement("img");
         img.src = `assets/photograph/${firstname}/${media.image}`;
+        img.setAttribute("alt", "Photo "+media.title);
         lightboxMedia.appendChild(img);
     } else if (media.video) {
         const video = document.createElement("video");
         video.src = `assets/photograph/${firstname}/${media.video}`;
+        video.setAttribute("alt", "Video "+media.title);
         video.controls = true;
         video.autoplay = false;
         lightboxMedia.appendChild(video);

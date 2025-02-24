@@ -352,6 +352,7 @@ form textarea {
     position: absolute;
     right: -100px;
     top: 40px;
+    cursor: pointer;
 }
 
 #lightbox-media {
