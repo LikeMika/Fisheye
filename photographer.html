@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page du photographer sélectionné">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -48,19 +50,19 @@
         </header>
 				<form id="form" method="get" action="">
 					<div class="formData">
-						<label>Prénom</label>
+						<label for="first" >Prénom</label>
 						<input type="text" id="first" name="first" class="text-control" />
 					</div>
           <div class="formData" >
-						<label>Nom</label>
+						<label for="last">Nom</label>
 						<input type="text" id="last" name="last" class="text-control" minlength="2" />
 					</div>
           <div class="formData" >
-						<label>Email</label>
+						<label for="email">Email</label>
 						<input type="email" id="email" name="email" class="text-control" />
 					</div>
           <div class="formData" >
-						<label>Message</label>
+						<label for="message" >Message</label>
 						<textarea id="message" name="message" class="text-control"></textarea>
 					</div>
           <input type="submit" class="contact_button" value="Envoyer">
