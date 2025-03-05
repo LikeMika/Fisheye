@@ -13,6 +13,7 @@ let currentIndex = 0;
 let firstname = "";
 
 function openLightbox(index, mediaAll, photographerName) {
+    
     firstname = photographerName;
     mediaList = mediaAll;
     currentIndex = index;
@@ -21,9 +22,12 @@ function openLightbox(index, mediaAll, photographerName) {
     lightboxContainer.classList.add("visible");
     lightbox.setAttribute('aria-hidden', 'false');
     mainContainer.setAttribute('aria-hidden', 'true');
+    mainContainer.setAttribute('inert', 'true');
+    
 }
 
 function updateLightbox() {
+    
     const media = mediaList[currentIndex];
     lightboxMedia.innerHTML = "";
 
@@ -60,9 +64,19 @@ lightboxContainer.addEventListener("click", (event) => {
     if (event.target === lightbox) closeLightbox();
 });
 
+// Fermeture quand on presse Entrer sur la croix
+closeButton.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        closeLightbox();
+    }
+  });
+  
+
 function closeLightbox() {
+    mainContainer.removeAttribute('inert');
     lightboxContainer.classList.remove("visible");
     mainContainer.setAttribute('aria-hidden', 'false');
+   
 }
 // Gestion du clavier
 window.addEventListener("keydown", (event) => {

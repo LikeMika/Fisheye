@@ -287,12 +287,21 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+.error-message {
+    font-size: 10px;
+    color: black;
+    margin-top: 5px;
+    display: none;
+  }
 
 .formData[data-error-visible="true"] input {
     border: 1px solid red;
 }
 .formData[data-error-visible="true"] textarea {
     border: 1px solid red;
+}
+.formData[data-error-visible="true"] .error-message {
+    display: block;
 }
 #lightbox {
     position: fixed;

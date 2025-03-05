@@ -6,6 +6,8 @@ const form = document.getElementById("form");
 const error = document.querySelector(".formData");
 const modal = document.getElementById("contact_modal");
 const modalBlock = document.querySelector(".modal");
+const modalTitle = document.getElementById("title-contact");
+const modalClose = document.getElementById("close-contact-modal");
 
 let verifChamp = false;
 
@@ -39,15 +41,27 @@ function displayModal() {
 	  modal.style.display = "block";
     document.body.style.position = 'fixed';
     document.body.style.top = `-${window.scrollY}px`;
+    mainContainer.setAttribute('inert', 'true');
 }
 
 function closeModal() {
+    mainContainer.removeAttribute('inert');
     modalBlock.setAttribute('aria-hidden', 'true');
     mainContainer.setAttribute('aria-hidden', 'false');
     modal.style.display = "none";
     document.body.style.position = 'relative';
     document.body.style.top = `${window.scrollY}px`;
 }
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeModal();
+});
+
+modalClose.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    closeModal();
+  }
+});
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();

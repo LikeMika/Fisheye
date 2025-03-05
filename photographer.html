@@ -43,40 +43,44 @@
       </div>
     </main>
     <div id="contact_modal">
-			<div class="modal" aria-hidden="true" role="dialog">
+			<div class="modal" aria-hidden="true" role="dialog" aria-modal="true">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermeture de la modale" />
+          <h2 id="title-contact" tabindex="0">Contactez-moi</h2>
+          <img src="assets/icons/close.svg" id="close-contact-modal" tabindex="0" onclick="closeModal()" alt="Fermeture de la modale" />
         </header>
 				<form id="form" method="get" action="">
 					<div class="formData">
 						<label for="first" >Prénom</label>
 						<input type="text" id="first" name="first" class="text-control" />
+            <span class="error-message" tabindex="0">Veuillez entrer 2 caractères ou plus pour le champ du prénom</span>
 					</div>
           <div class="formData" >
 						<label for="last">Nom</label>
 						<input type="text" id="last" name="last" class="text-control" minlength="2" />
+            <span class="error-message" tabindex="0">Veuillez entrer 2 caractères ou plus pour le champ du nom</span>
 					</div>
           <div class="formData" >
 						<label for="email">Email</label>
 						<input type="email" id="email" name="email" class="text-control" />
+            <span class="error-message" tabindex="0">Veuillez entrer un email valide</span>
 					</div>
           <div class="formData" >
 						<label for="message" >Message</label>
 						<textarea id="message" name="message" class="text-control"></textarea>
+            <span class="error-message" tabindex="0">Veuillez entrer au mois 2 caractères ou plus pour le message</span>
 					</div>
           <input type="submit" class="contact_button" value="Envoyer">
 				</form>
 			</div>
 		</div>
     <div id="lightbox">
-      <div id="modal-lightbox" class="modal_lightbox" aria-hidden="true" role="dialog">
-       <button id="btn-nav-left"><</button>
-       <button id="btn-nav-right">></button>
-        <img src="assets/images/close-modal.png" id="close-modal" alt="Fermeture de la modale" />
+      <div id="modal-lightbox" class="modal_lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+       <button id="btn-nav-left" tabindex="0"><</button>
+       <button id="btn-nav-right" tabindex="0">></button>
+        <img src="assets/images/close-modal.png" tabindex="0" id="close-modal" alt="Fermeture de la modale" />
       
        <div id="lightbox-media"></div>
-       <p id="lightbox-title">
+       <p id="lightbox-title" tabindex="0">
       </div>
     </div>
     <script src="scripts/templates/media.js"></script>

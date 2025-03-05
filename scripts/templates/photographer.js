@@ -5,6 +5,7 @@ function photographerTemplate(data, media) {
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
+        article.setAttribute("aria-labelledby", `Photographe au nom de `+name);
         const urlPhotographer = document.createElement('a');
         urlPhotographer.setAttribute("href","photographer.html?id="+id);
         const img = document.createElement( 'img' );
@@ -14,6 +15,7 @@ function photographerTemplate(data, media) {
         h2.textContent = name;
         const div = document.createElement('div');
         div.className = "subtitle";
+        div.setAttribute("tabindex", "0");
         const location = document.createElement('p');
         location.className = "geo";
         location.textContent = city+", "+country;
